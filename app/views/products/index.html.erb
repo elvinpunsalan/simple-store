@@ -30,7 +30,10 @@
 <% 100.times do %>
   Chunky Bacon<br>
 <% end %>
-
+<br>
+The total number of unique products: <%= Product.select('title').distinct.count %><br>
+The average price of products: <%= sprintf("$%.2f", Product.average('price')) %><br>
+The quantity of stock you are holding summed over all items: <%= Product.sum('stock_quantity') %><br>
 <br>
 
 <%= link_to 'New Product', new_product_path %>
